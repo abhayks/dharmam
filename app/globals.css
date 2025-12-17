@@ -1,26 +1,150 @@
+
+
+/* 1. Import Fonts */
+/* Merriweather for elegant English reading */
+/* Noto Serif Devanagari for classic Hindi/Sanskrit text */
 @import "tailwindcss";
+@theme {
+  /* -- Typography Linking -- */
+  /* Usage: font-heading, font-body, font-sanskrit */
+  --font-heading: "Merriweather", "Noto Serif Devanagari", serif;
+  --font-body: "Merriweather", "Noto Serif Devanagari", serif;
+  --font-sanskrit: "Amita","Noto Serif Devanagari", serif; 
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* -- Color Linking -- */
+  /* This maps your CSS variables to Tailwind classes like bg-primary, text-accent */
+  /* We wrap them in hsl() so Tailwind knows how to handle opacity modifiers */
+  
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  /* COLORS */
+  --color-saffron-strong: #D94F04;   /* Deep Burnt Orange */
+  --color-saffron-border: #FF9933;   /* Standard Saffron */
+  --color-saffron-surface: #FFF5E6;  /* Light Cream/Orange Wash */
+  --color-maroon-900: #800000;       /* Deep Vedic Maroon */
+  /* Base Saffron: Very Light Saffron (Pastel Orange) */
+  --color-saffron-base: #FFE0B2;
+  
+  /* Text Saffron: Darker, readable orange for body text or subheaders */
+  --color-saffron-text: #B54500;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    /* -- WARM PAPER THEME -- */
+    
+    /* Background: Warm Cream (Like old parchment) */
+    --background: 40 50% 98%; 
+    /* Foreground: Deep Brown (Softer than black, easy to read) */
+    --foreground: 20 14.3% 4.1%; 
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    /* Card Background: Slightly darker cream */
+    --card: 40 50% 96%;
+    --card-foreground: 20 14.3% 4.1%;
+ 
+    /* Popover: Standard cream */
+    --popover: 40 50% 98%;
+    --popover-foreground: 20 14.3% 4.1%;
+ 
+    /* PRIMARY: Saffron / Bhagwa (Vibrant Orange) */
+    --primary: 25 95% 53%; 
+    --primary-foreground: 60 9.1% 97.8%; /* White text on orange */
+ 
+    /* SECONDARY: Deep Maroon (Kumkum/Sindoor) */
+    --secondary: 0 72% 35%;
+    --secondary-foreground: 60 9.1% 97.8%;
+ 
+    /* MUTED: Soft Sand color */
+    --muted: 35 25% 88%;
+    --muted-foreground: 25 5.9% 40%;
+ 
+    /* ACCENT: Gold / Turmeric (Haldi) */
+    --accent: 45 93% 47%;
+    --accent-foreground: 24 9.8% 10%;
+ 
+    /* DESTRUCTIVE: Red */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    /* BORDERS: Soft gold/brown */
+    --border: 35 20% 82%;
+    --input: 35 20% 82%;
+    --ring: 25 95% 53%; /* Saffron glow on focus */
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    /* -- TEMPLE STONE THEME -- */
+    
+    /* Background: Deep Grey/Black */
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+ 
+    --card: 24 10% 8%;
+    --card-foreground: 60 9.1% 97.8%;
+ 
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+ 
+    /* Primary Saffron glows in dark */
+    --primary: 25 95% 53%;
+    --primary-foreground: 60 9.1% 97.8%;
+ 
+    /* Secondary becomes a lighter clay red */
+    --secondary: 0 60% 45%;
+    --secondary-foreground: 60 9.1% 97.8%;
+ 
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+ 
+    --accent: 45 93% 47%;
+    --accent-foreground: 24 9.8% 10%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+ 
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 25 95% 53%;
+  }
+
+  /* Apply defaults to body */
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  /* Make headings use the specific font automatically */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
 }
