@@ -9,8 +9,8 @@ const rl = readline.createInterface({
 
 const ask = (question) => new Promise((resolve) => rl.question(question, resolve));
 
-const VERSE_LIST_START = '<!-- VERSE_LIST_START -->';
-const VERSE_LIST_END = '<!-- VERSE_LIST_END -->';
+const VERSE_LIST_START = '{/* VERSE_LIST_START */}';
+const VERSE_LIST_END = '{/* VERSE_LIST_END */}';
 
 /**
  * Extracts the title from the frontmatter of an MDX file.
@@ -52,7 +52,7 @@ async function main() {
 
   // 1. Find all verse directories
   const verseDirs = fs.readdirSync(chapterPath, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory() && dirent.name.startsWith('verse-'))
+    .filter(dirent => dirent.isDirectory() && dirent.name.startsWith('Shloak-'))
     .map(dirent => dirent.name)
     .sort((a, b) => {
       const numA = parseInt(a.split('-')[1]);

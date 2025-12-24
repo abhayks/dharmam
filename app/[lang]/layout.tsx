@@ -1,17 +1,17 @@
 import "../globals.css";
 // 1. Import Amita
-import { Cinzel, Merriweather, Amita } from "next/font/google"; 
+import { Cinzel, Merriweather, Amita } from "next/font/google";
 import type { Metadata } from "next";
 import BottomNav from "@/components/BottomNav";
 
-const cinzel = Cinzel({ 
-  subsets: ["latin"], 
+const cinzel = Cinzel({
+  subsets: ["latin"],
   variable: "--font-heading",
-  weight: ["400", "700", "900"] 
+  weight: ["400", "700", "900"]
 });
 
-const merriweather = Merriweather({ 
-  subsets: ["latin"], 
+const merriweather = Merriweather({
+  subsets: ["latin"],
   variable: "--font-body",
   weight: ["300", "400", "700", "900"]
 });
